@@ -1,0 +1,10 @@
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\bin\Debug\Xiangqi.exe.config
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\bin\Debug\Xiangqi.exe
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\bin\Debug\Xiangqi.pdb
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.csprojResolveAssemblyReference.cache
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.Properties.Resources.resources
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.csproj.GenerateResource.Cache
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.exe
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.pdb
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.GameScreen.resources
+C:\Users\souphian\Dropbox\windesheim\Leerjaar 3\Periode 3\Game Algorithms and Artificial Intelligence\Xiangqi\Xiangqi\obj\Debug\Xiangqi.Gamescreen.About.resources

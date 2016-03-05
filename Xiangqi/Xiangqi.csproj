@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{45E5DBD3-4E4D-425C-A855-26471DD2475B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xiangqi</RootNamespace>
+    <AssemblyName>Xiangqi</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Gamescreen\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gamescreen\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PawnBitmapCollection.cs" />
+    <Compile Include="Pawns\Advisor.cs" />
+    <Compile Include="Pawns\Behaviour\AdvisorBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\CannonBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\ElephantBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\GeneralBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\IPawnBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\KnightBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\RookBehaviour.cs" />
+    <Compile Include="Pawns\Behaviour\SoldierBehaviour.cs" />
+    <Compile Include="Pawns\Cannon.cs" />
+    <Compile Include="Gameboard\GameBoard.cs" />
+    <Compile Include="Gamescreen\GameScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gamescreen\GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pawns\Elephant.cs" />
+    <Compile Include="Pawns\EmptyPawn.cs" />
+    <Compile Include="Pawns\General.cs" />
+    <Compile Include="Pawns\IPawn.cs" />
+    <Compile Include="Pawns\Knight.cs" />
+    <Compile Include="Pawns\Rook.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pawns\Soldier.cs" />
+    <EmbeddedResource Include="Gamescreen\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gamescreen\GameScreen.resx">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_rook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_cannon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_advisor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_elephant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_general.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_b_soldier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_soldier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_rook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_general.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_elephant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_advisor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\we_r_cannon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pawn_marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pawn_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_xiangqi.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about_xiangqi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_general.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_general.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_cannon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_cannon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_advisor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_advisor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_soldier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_soldier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_rook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_rook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_r_elephant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ch_b_elephant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\possiblemovement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\threateningpawn.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xiangqi", "Xiangqi\Xiangqi.csproj", "{45E5DBD3-4E4D-425C-A855-26471DD2475B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45E5DBD3-4E4D-425C-A855-26471DD2475B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E5DBD3-4E4D-425C-A855-26471DD2475B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E5DBD3-4E4D-425C-A855-26471DD2475B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E5DBD3-4E4D-425C-A855-26471DD2475B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal
