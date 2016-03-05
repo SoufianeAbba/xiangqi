@@ -9,7 +9,7 @@ using Xiangqi.Pawns;
 namespace Xiangqi
 {
     public enum PlayerSide { BLACK, RED, EMPTY}
-    public enum GameState { PLAYING, CHECKMATED}
+    public enum GameState { PLAYING, CHECKMATED, BREAK}
 
     public class GameBoard
     {
