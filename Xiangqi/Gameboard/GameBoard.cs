@@ -67,12 +67,10 @@ namespace Xiangqi
             PlacePawns();
             
             screenWidthMiddle = GameScreen.width / 2;
-            int gameBoardWidthMiddle = gameBoardImg.Width / 2;
-            screenWidthMiddle = screenWidthMiddle - gameBoardWidthMiddle;
+            screenWidthMiddle = screenWidthMiddle - (gameBoardImg.Width / 2);
 
             screenHeightMiddle = GameScreen.height / 2;
-            int gameBoardHeighMiddle = gameBoardImg.Height / 2;
-            screenHeightMiddle = screenHeightMiddle - gameBoardHeighMiddle;
+            screenHeightMiddle = screenHeightMiddle - (gameBoardImg.Height / 2);
         }
 
         public void Paint(PaintEventArgs e, Label l)
@@ -128,9 +126,9 @@ namespace Xiangqi
                     new SolidBrush(Color.Black), 0, 50);
                 }
             }
-            
-            // Draw every pawn on the board and updating its X and Y.
-            for(int row = 0; row < 10; row++)
+
+            // Draw every pawn on the board and updating its X and Y and marking the possible positions the pawn can move to.
+            for (int row = 0; row < 10; row++)
             {
                 for(int col = 0; col < 9; col++)
                 {
@@ -138,35 +136,19 @@ namespace Xiangqi
                     {
                         gameBoardPositions[row, col].Paint(g, (marginX * col) + locX, (marginY * row) + locY, imageType);
                     }
+
+                    if (selectedPawnPossibleMovements != null && selectedPawnPossibleMovements[row, col]) 
+                    {
+                        g.DrawImage(PawnBitmapCollection.possibleMovementMarker, gameBoardPositions[row, col].GetRec());
+                    }
                 }
             }
        
             // Marking the selected pawn.
-            if(!selectedPawn.IsEmpty)
-            {
-                g.DrawImage(PawnBitmapCollection.pawnMarker, selectedPawn);
-            }
+            if(!selectedPawn.IsEmpty) g.DrawImage(PawnBitmapCollection.pawnMarker, selectedPawn);
 
             // Marking the pawn that threatens the general if checked.
-            if (threateningPawn != null)
-            {
-                g.DrawImage(PawnBitmapCollection.threateningPawnMarker, threateningPawn.GetRec());
-            }
-
-            // Marking the possible positions the pawn can move to.
-            if (selectedPawnPossibleMovements != null)
-            {
-                for (int row = 0; row < 10; row++)
-                {
-                    for (int col = 0; col < 9; col++)
-                    {
-                        if (selectedPawnPossibleMovements[row, col])
-                        {
-                            g.DrawImage(PawnBitmapCollection.possibleMovementMarker, gameBoardPositions[row, col].GetRec());
-                        }
-                    }
-                }
-            }
+            if (threateningPawn != null) g.DrawImage(PawnBitmapCollection.threateningPawnMarker, threateningPawn.GetRec());
         }
 
         private void ResetBoard()
