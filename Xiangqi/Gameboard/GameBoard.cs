@@ -37,12 +37,10 @@ namespace Xiangqi
         private IPawn blackGeneral;
         private int colBlackGeneral;
         private int rowBlackGeneral;
-        private bool blackGeneralChecked;
 
         private IPawn redGeneral;
         private int colRedGeneral;
         private int rowRedGeneral;
-        private bool redGeneralChecked;
 
         private IPawn threateningPawn;
         private int colThreateningPawn;
@@ -66,11 +64,8 @@ namespace Xiangqi
 
             PlacePawns();
             
-            screenWidthMiddle = GameScreen.width / 2;
-            screenWidthMiddle = screenWidthMiddle - (gameBoardImg.Width / 2);
-
-            screenHeightMiddle = GameScreen.height / 2;
-            screenHeightMiddle = screenHeightMiddle - (gameBoardImg.Height / 2);
+            screenWidthMiddle = (GameScreen.width / 2) - (gameBoardImg.Width / 2);
+            screenHeightMiddle = (GameScreen.height / 2) - (gameBoardImg.Height / 2);
         }
 
         public void Paint(PaintEventArgs e, Label l)
@@ -88,9 +83,13 @@ namespace Xiangqi
             g.DrawImage(gameBoardImg, new Rectangle(screenWidthMiddle, screenHeightMiddle, gameBoardImg.Width, gameBoardImg.Height));
         }
 
+        // TODO: Mark the right threathening pawn. 
+        // TODO: Mark possible movement points as red if blocked by threat.
         private void PaintPawns(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+            IPawn checkedGeneral = null;
+            string winningPlayer = string.Empty;
 
             int locX = screenWidthMiddle - (pawnSizeWidth / 2);
             int locY = screenHeightMiddle - (pawnSizeHeight / 2);
@@ -102,28 +101,27 @@ namespace Xiangqi
             // If black general is checked.
             if (GeneralIsChecked(blackGeneral))
             {
-                g.DrawImage(PawnBitmapCollection.generalChecked, blackGeneral.GetRec());
-                blackGeneralChecked = true;
-
-                if (GeneralIsCheckMated(blackGeneral))
-                {
-                    gameState = GameState.CHECKMATED;
-                    g.DrawString("Checkmate, RED has won!!!\n\nStart a new game!", new Font(FontFamily.GenericSansSerif, 16, FontStyle.Regular),
-                    new SolidBrush(Color.Black), 0, 60);
-                }
+                checkedGeneral = blackGeneral;
+                winningPlayer = "RED";
             }
-            
+
             // If red general is checked.
             if (GeneralIsChecked(redGeneral))
             {
-                g.DrawImage(PawnBitmapCollection.generalChecked, redGeneral.GetRec());
-                redGeneralChecked = true;
+                checkedGeneral = redGeneral;
+                winningPlayer = "BLACK";
+            }
 
-                if (GeneralIsCheckMated(redGeneral))
+            // Mark the checked general and check if the general is checkmated.
+            if (checkedGeneral != null)
+            {
+                g.DrawImage(PawnBitmapCollection.generalChecked, checkedGeneral.GetRec());
+
+                if (GeneralIsCheckMated(checkedGeneral))
                 {
                     gameState = GameState.CHECKMATED;
-                    g.DrawString("Checkmate. BLACK has won!!!\n\nStart a new game!", new Font(FontFamily.GenericSansSerif, 16, FontStyle.Regular),
-                    new SolidBrush(Color.Black), 0, 50);
+                    g.DrawString("Checkmate, " + winningPlayer + " has won!!!\n\nStart a new game!", new Font(FontFamily.GenericSansSerif, 16, FontStyle.Regular),
+                    new SolidBrush(Color.Black), 0, 60);
                 }
             }
 
@@ -176,9 +174,6 @@ namespace Xiangqi
 
             colRedGeneral = 4;
             rowRedGeneral = 9;
-
-            blackGeneralChecked = false;
-            redGeneralChecked = false;
 
             threateningPawn = null;
             rowThreateningPawn = -1;
@@ -328,8 +323,6 @@ namespace Xiangqi
                                             threateningPawn = null;
                                             rowThreateningPawn = -1;
                                             colThreateningPawn = -1;
-
-                                            blackGeneralChecked = false;
                                         }
                                     }
                                     else if (gameBoardPositions[selectedCol, selectedRow].Equals(redGeneral))
@@ -373,8 +366,6 @@ namespace Xiangqi
                                             threateningPawn = null;
                                             rowThreateningPawn = -1;
                                             colThreateningPawn = -1;
-
-                                            redGeneralChecked = false;
                                         }
                                     }
                                     else
@@ -404,10 +395,6 @@ namespace Xiangqi
                                                 pawnFound = true;
                                                 break;
                                             }
-                                            else
-                                            {
-                                                blackGeneralChecked = false;
-                                            }
 
                                             // Check if by moving this black pawn, it threatens the red general.
                                             if(GeneralIsChecked(redGeneral))
@@ -434,10 +421,6 @@ namespace Xiangqi
                                                 previousPlayer = previousPlayer == PlayerSide.RED ? PlayerSide.BLACK : PlayerSide.RED;
                                                 pawnFound = true;
                                                 break;
-                                            }
-                                            else
-                                            {
-                                                redGeneralChecked = false;
                                             }
 
                                             // Check if by moving this red pawn, it threatens the black general.
